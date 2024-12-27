@@ -61,17 +61,3 @@ int Span::longestSpan()
     int max = *std::max_element(elements_.begin(), elements_.end());
     return max - min;
 }
-
-
-void Span::addRange(int start, int end)
-{
-    if (start > end)
-        throw std::runtime_error("Invalid range.");
-    
-    int rangeSize = end - start + 1;
-    if (elements_.size() + rangeSize > n_)
-        throw std::runtime_error("Span is full.");
-
-    for (int i = start; i <= end; i++)
-        elements_.push_back(i);
-}
